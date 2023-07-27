@@ -1,3 +1,5 @@
+<?php
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
@@ -15,7 +17,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
 
     <!-- Bootstrap CSS Framework-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
     <!-- END - Bootstrap CSS Framework-->
     
     <!-- Favicons 
@@ -28,7 +30,7 @@
     <meta name="theme-color" content="#712cf9">
      END - Favicons -->
      <meta name="theme-color" content="#712cf9">
-     <link rel="manifest" href="assets/js/manifest.json">
+     <link rel="manifest" href="http://localhost/assets/js/manifest.json">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -105,7 +107,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="css/offcanvas-navbar.css" rel="stylesheet">
+    <link href="http://localhost/css/offcanvas-navbar.css" rel="stylesheet">
   </head>
   <body class="bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -278,8 +280,8 @@
     </small>
   </div>
 </main>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/color-modes.js"></script>
-<script src="js/offcanvas-navbar.js"></script>
+<script src="http://localhost/js/bootstrap.bundle.min.js"></script>
+<script src="http://localhost/assets/js/color-modes.js"></script>
+<script src="http://localhost/js/offcanvas-navbar.js"></script>
 </body>
 </html>
