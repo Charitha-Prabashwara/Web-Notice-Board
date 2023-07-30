@@ -1,3 +1,59 @@
+<?php
+include_once "database_config.php";
+include_once "getnotice.php";
+
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+
+$conne = new Connection();
+$newsObj = new GetNotice();
+$all_notice_array= $newsObj->Get_All_Notice();
+$very_very_latest_notice= $newsObj->Get_latest1_Notice();
+
+
+
+$title='';
+$subtitle='';
+$content='';
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+
+  if(isset($_GET['id'])){
+    //Sanitaization
+  
+      
+        $id = mysqli_real_escape_string($conne->__construct(), $_GET['id']);
+      
+        //check database.
+          $row = $newsObj->Get_Notice($_GET['id']);
+          //die(print_r($row));
+          // Array ( [id] => 4 [title] => werewr [subtitle] => wrewrwe [content] => rewreww [timestamp] => 2023-07-27 22:01:02 [author_id] => 1 ) 1
+        $title = $row["title"];
+        $subtitle = $row["subtitle"];
+        $content = $row["content"];
+
+
+      
+      
+  }else{
+    //echo 'fsfsfsffsfsfsfsdfsfsdf';
+      if($very_very_latest_notice[0]['title'] == null){
+        $title = "No data";
+      }else{
+        $title = $very_very_latest_notice[0]['title'];
+        $subtitle = $very_very_latest_notice[0]['subtitle'];
+        $content = $very_very_latest_notice[0]['content'];
+      }
+
+  
+      
+      
+  }
+}
+
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
@@ -10,13 +66,14 @@
 
     <script src="assets/js/color-modes.js"></script>
 
-    <title>Notice</title>
+    <title>News</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
 
     <!-- Bootstrap CSS Framework-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- END - Bootstrap CSS Framework-->
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
     
     <!-- Favicons 
     <link rel="apple-touch-icon" src="assets/img/apple-touch-icon.png" sizes="180x180">
@@ -160,48 +217,9 @@
     </div>
 
     
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">SEUSL Notice Board</a>
-    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Exam Results</a>
-        </li>
-       
-       
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Marks</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Assignments</a></li>
-            <li><a class="dropdown-item" href="#">Assesments</a></li>
-            
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex" role="search" style="visibility: hidden;">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
 
-<div class="nav-scroller bg-body shadow-sm">
-  <nav class="nav" aria-label="Secondary navigation">
-    <a class="nav-link" aria-current="page" href="#">Dashboard</a>
-   
-    <a class="nav-link" href="#">News</a>
-    <a class="nav-link active" href="#">Notices</a>
-    
-  </nav>
+<?php require_once 'header.php'; ?>
 </div>
 
 <main class="container">
@@ -215,52 +233,50 @@
 
   <div class="row">
     <div class="lh-1">
-      <h1 class="h3 mt-5 mb-0 lh-1 pl-2" style="color: grey;">EPAK and FOT Fight</h1>
-      <small>Powerd by @ Faculty of Technology</small>
+      <h1 class="h3 mt-5 mb-0 lh-1 pl-2" style="color: grey;"><?php echo $title;?></h1>
+      <small><?php echo $subtitle;?></small>
     </div>
   </div>
   <hr>
   <div class="row">
     <p class="text">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam corporis ipsam eum neque facere adipisci, ea fugiat soluta numquam voluptates recusandae tempore unde incidunt eligendi sapiente temporibus, ipsa voluptate explicabo.
+    <?php echo $content;?>
     </p>
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Notices</h6>
-    <div class="d-flex text-body-secondary pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">Full Name</strong>
-          
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <div class="d-flex text-body-secondary pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">Full Name</strong>
-          
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <div class="d-flex text-body-secondary pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">Full Name</strong>
+
+  <table id="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Time</th>
+      
+        </tr>
+    </thead>
+    <tbody>
+      <?php
+      for ($i=0; $i < sizeof($all_notice_array); $i++) { 
+        //print_r($latest5_news_array[$i]['id']);
+        $urlGen = "notice.php?id=" . $all_notice_array[$i]['id'];
+        echo '<tr>';
+        echo "<td><strong><a href='" . $urlGen . "' class='h6 d-block text-gray-dark link-offset-2 text-decoration-none text-dark'>" . $all_notice_array[$i]['title'] . "</a></strong></td>";
+        echo "<td>" . $all_notice_array[$i]['timestamp'] . "</td>";
+        echo '</tr>';
          
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <small class="d-block text-end mt-3">
-    
-    </small>
+
+
+      }
+   
+ 
+
+
+     
+      ?>
+      
+   
+    </tbody>
+</table>
   </div>
 
   
@@ -271,5 +287,14 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/color-modes.js"></script>
 <script src="js/offcanvas-navbar.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+</script>
 </body>
 </html>
