@@ -44,4 +44,11 @@ This is created by connecting a JAVA GUI APPLICATION, a DATABASE and a WEBSITE t
 ![](markdownresources/main1.png)
 ### Database
 ![](markdownresources/databae.png)
-[Download SQL schema - *.sql file format](markdownresources/seu.sql)
+-----------------------------------------------------------
+[SQL Schema - Download and craete database](markdownresources/seu.sql)
+-----------------------------------------------------------
+Table structure.
+
+1. user table
+
+> id(PRIMARY KEY / AUTOINCREMENT) | fullName(VARCHAR) | firsttName(VARCHAR) | lastName(VARCHAR) | email(VARCHAR) | password(VARCHAR)
