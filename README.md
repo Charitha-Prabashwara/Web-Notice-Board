@@ -42,3 +42,5 @@ A web notice board, also known as an online bulletin board or digital bulletin b
 This is created by connecting a JAVA GUI APPLICATION, a DATABASE and a WEBSITE together. New News and Notice can be created, updated and deleted using the Java application.
 
 ![](markdownresources/main1.png)
+### Database
+![](markdownresources/databae.png)
