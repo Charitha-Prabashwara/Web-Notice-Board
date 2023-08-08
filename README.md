@@ -49,7 +49,17 @@ This is created by connecting a JAVA GUI APPLICATION, a DATABASE and a WEBSITE t
 -----------------------------------------------------------
 Table structure.
 
-1. user table
+1. user table.
 
 id(PRIMARY KEY / AUTOINCREMENT) | fullName(VARCHAR) | firsttName(VARCHAR) | lastName(VARCHAR) | email(VARCHAR) | password(VARCHAR)
+--- | --- | --- | --- | --- | --- |
+
+2. news table.
+
+id(PRIMARY KEY / AUTOINCREMENT) | title(VARCHAR) | subtitle(VARCHAR) | content(VARCHAR) | timestamp(timestamp) | user_id(FORIEGN KEY)
+--- | --- | --- | --- | --- | --- |
+
+3. notice table.
+
+id(PRIMARY KEY / AUTOINCREMENT) | title(VARCHAR) | subtitle(VARCHAR) | content(VARCHAR) | timestamp(timestamp) | user_id(FORIEGN KEY)
 --- | --- | --- | --- | --- | --- |
