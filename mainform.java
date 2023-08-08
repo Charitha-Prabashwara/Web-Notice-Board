@@ -1,15 +1,10 @@
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author HP
- */
 public class mainform extends javax.swing.JFrame {
 
     String userID, firstName, lastName, email;
-    String[] userdata = new String[4];
+    String[] userdata = new String[4];//user data array.
  
     News newsObj;
     Notice noticeObj;
@@ -22,20 +17,21 @@ public class mainform extends javax.swing.JFrame {
         this.firstName = user[1];
         this.lastName = user[2];
         this.email= user[3];
-
+        //create userdata 
         userdata[0] = this.userID;
         userdata[1] = this.firstName;
         userdata[2] = this.lastName;
         userdata[3] = this.email;
-        System.out.println(userdata[0]);
+        //System.out.println(userdata[0]);
          
        
-        newsObj = new News(userdata);
-        noticeObj = new Notice(userdata);
-        userObj = new UserController();
-
+        newsObj = new News(userdata);// news controller
+        noticeObj = new Notice(userdata);//Notice controller
+        userObj = new UserController();// User Controller
+        
+        //set form title
         setTitle("WEB NOTICE BOARD: " + userdata[1] + " " + userdata[2] +" ( " + userdata[3] + " )");
-
+        //check database connection
         try {
             userObj.testConnection();
             jMenu4.setText("Connection Status: Connected.");
@@ -146,22 +142,25 @@ public class mainform extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void btnNewsActionPerformed(java.awt.event.ActionEvent evt) {    
-        
+        //news form show
         try {
             newsObj.setVisible(true);
             setVisible(false);
             dispose();
         } catch (Exception e) {
+            //check errors
             JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
         }                                       
     }                                       
 
     private void btnNoticeActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        //notice form show
         try {
            noticeObj.setVisible(true);
             setVisible(false);
             dispose();
         } catch (Exception e) {
+            //check errors
             JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
         }
     }                                         

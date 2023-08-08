@@ -14,20 +14,21 @@ public class Notice extends javax.swing.JFrame {
         this.firstName = user[1];
         this.lastName = user[2];
         this.email= user[3];
-
+        //userdata
         userdata[0] = this.userId;
         userdata[1] = this.firstName;
         userdata[2] = this.lastName;
         userdata[3] = this.email;
 
         initComponents();
+        //fromreset
         fromreset();
         
 
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+                     
     private void initComponents() {
 
         selectCombo = new javax.swing.JComboBox<>();
@@ -44,6 +45,7 @@ public class Notice extends javax.swing.JFrame {
         statusLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        //set form title
         setTitle("Notice : " + this.firstName + "( " + this.email + ")");
 
         selectCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
@@ -173,7 +175,8 @@ public class Notice extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) { 
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {
+        //show insertform 
     System.out.println(userdata[0]);
       insertNotice ns =  new insertNotice(userdata);
       setEnabled(false);
@@ -185,6 +188,7 @@ public class Notice extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception {                                          
        
         try {
+            //connect and update selected notice
             boolean result = notice_cont.updateNotice(jTextField1.getText().toString(), jTextField2.getText().toString(), jTextArea1.getText().toString());
             if(result){
                 fromreset();
@@ -279,15 +283,9 @@ public class Notice extends javax.swing.JFrame {
         dispose();  
     } 
 
-    /**
-     * @param args the command line arguments
-     */
+ 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+ 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

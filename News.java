@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class News extends javax.swing.JFrame {
     String userId, firstName, lastName, email;
     String[] userdata = new String[4];
-
+    // news controller
     NewsController news_cont = new NewsController();
     
     public News(String[] user) {
@@ -14,7 +14,7 @@ public class News extends javax.swing.JFrame {
         this.firstName = user[1];
         this.lastName = user[2];
         this.email= user[3];
-
+        //create userdata
         userdata[0] = this.userId;
         userdata[1] = this.firstName;
         userdata[2] = this.lastName;
@@ -27,7 +27,7 @@ public class News extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+                            
     private void initComponents() {
 
         selectCombo = new javax.swing.JComboBox<>();
@@ -44,6 +44,7 @@ public class News extends javax.swing.JFrame {
         statusLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        // show form title
         setTitle("News : " + this.firstName + "( " + this.email + ")");
 
         selectCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
@@ -78,11 +79,11 @@ public class News extends javax.swing.JFrame {
 
         jLabel2.setText("Title");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        // jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         jTextField1ActionPerformed(evt);
+        //     }
+        // });
 
         jLabel3.setText("Subtitle");
 
@@ -171,9 +172,10 @@ public class News extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }                       
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) { 
+        //show insert form
     System.out.println(userdata[0]);
       insertNews ns =  new insertNews(userdata);
       setEnabled(false);
@@ -183,9 +185,11 @@ public class News extends javax.swing.JFrame {
     }                                         
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception {                                          
-       
+       //news update
         try {
+            //send to database
             boolean result = news_cont.updateNews(jTextField1.getText().toString(), jTextField2.getText().toString(), jTextArea1.getText().toString());
+            //check connection and formreset
             if(result){
                 fromreset();
                 statusLabel.setForeground(new java.awt.Color(10, 250, 13));
@@ -196,7 +200,7 @@ public class News extends javax.swing.JFrame {
             }
             
         } catch (Exception e) {
-
+            //show updation error
             statusLabel.setForeground(new java.awt.Color(239, 13, 13));
             statusLabel.setText("Status: "+ e.getMessage().toString());
             JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
@@ -205,10 +209,8 @@ public class News extends javax.swing.JFrame {
         
     }                                         
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    } 
     public void fromreset(){
+        //form reset
         selectCombo.removeAllItems();
         jTextField1.setText("");
         jTextField2.setText("");
@@ -217,28 +219,35 @@ public class News extends javax.swing.JFrame {
         news_cont.userId=userId;
 
         try {
+            //get all news
             ResultSet result = news_cont.GetAllNews(userId);
             while(result.next()){
+                //set combobox
                 selectCombo.addItem(result.getString("id") + ":" + result.getString("title"));
             }
             statusLabel.setForeground(new java.awt.Color(10, 250, 13));
             statusLabel.setText("Status: " + "Connection Success..");
         } catch (Exception e) {
+            //check connection error
             statusLabel.setForeground(new java.awt.Color(239, 13, 13));
             statusLabel.setText("Status: "+ e.getMessage().toString());
             JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
         }
     }                                          
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {     
+        //delete selected news                                     
         int response = JOptionPane.showConfirmDialog(this, "Do you want to delete ?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(response == JOptionPane.YES_OPTION){
             try {
+                // connect and delete selected news.
                 news_cont.DeleteNews();
+                //form reset
                 fromreset();
                 statusLabel.setForeground(new java.awt.Color(10, 250, 13));
                 statusLabel.setText("Status: " + "Connection Success..");
             } catch (Exception e) {
+                //show errors.
                 statusLabel.setForeground(new java.awt.Color(239, 13, 13));
                 statusLabel.setText("Status: "+ e.getMessage().toString());
                 JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
@@ -247,7 +256,7 @@ public class News extends javax.swing.JFrame {
     }                                         
 
     private void selectComboActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception{
-                                                
+         //select news                                       
         String comob_selected_item = selectCombo.getSelectedItem().toString();
         //System.out.println(comob_selected_item);
         String[] splited = comob_selected_item.split(":");
@@ -256,8 +265,11 @@ public class News extends javax.swing.JFrame {
 
         
         try {
+            //get selected news
             ResultSet result = news_cont.GetNews();
+            
             while(result.next()){
+                //set field
                 jTextField1.setText(result.getString("title"));
                 jTextField2.setText(result.getString("subtitle"));
                 jTextArea1.setText(result.getString("content"));
@@ -267,6 +279,7 @@ public class News extends javax.swing.JFrame {
             statusLabel.setText("Status: " + "Connection Success..");
             
         } catch (Exception e) {
+            //show error
             statusLabel.setForeground(new java.awt.Color(239, 13, 13));
             statusLabel.setText("Status: "+ e.getMessage().toString());
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
@@ -274,20 +287,13 @@ public class News extends javax.swing.JFrame {
 
     }
     
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
+    private void formWindowClosing(java.awt.event.WindowEvent evt) { 
+        //handle formclose event and show mainform                                  
         new  mainform(userdata).setVisible(true);
         dispose();  
     } 
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -304,9 +310,7 @@ public class News extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(News.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 

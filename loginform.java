@@ -10,10 +10,13 @@ public class loginform extends javax.swing.JFrame {
     public loginform() throws SQLException, Exception {
         
         initComponents();
-        
+        //Test database connection
         try {
+            //create user controller.
             UserController usr = new UserController();
             Exception exc = usr.testConnection();
+
+            //connection errors check
             if(exc.equals(null)){
                 labelConnectionStatus.setText("State: Disconnected.");
             }else{
@@ -130,20 +133,22 @@ public class loginform extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }                      
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) throws Exception {                                         
-        // TODO add your handling code here:
-        String msg1= "Please Fillout your email Address and Password";
+       //login operation
         
+        //check email and password not empty or nit null
         if(emailField.getText().equals("") || passwordField.getText().equals("")){
-            
+            //display password, email empty error msg.
+            String msg1= "Please Fillout your email Address and Password";
             JOptionPane.showMessageDialog(null, msg1);
         }else{
          
              //check valid email address
 
              if(!new Email().isEmailValidation(emailField.getText())){
+                //show invalid email error msg.
                 String msg = "You enterd email isn't valid";
                 JOptionPane.showMessageDialog(null, msg);
              }else{
@@ -154,7 +159,7 @@ public class loginform extends javax.swing.JFrame {
                 if(user.Authenticate(emailField.getText(), passwordField.getText())){
 
                     user.getUserDetails(emailField.getText(), passwordField.getText());
-                    
+                    //create userdata for send other forms.
                     String[] ud = new String[4];
 
                     ud[0] = user.userId;
@@ -163,12 +168,13 @@ public class loginform extends javax.swing.JFrame {
                     ud[3] = user.emailAddr;
 
                    
-
+                    //mainform show
                     new mainform(ud).setVisible(true);
                     this.setVisible(false);
 
                 }else{
-                    String msg = "InvSSalid user, Please enter valid email and password";
+                    //invalid user error msg.
+                    String msg = "Invalid user, Please enter valid email and password";
                     JOptionPane.showMessageDialog(null, msg);
                 }
              }    
@@ -177,7 +183,8 @@ public class loginform extends javax.swing.JFrame {
               
     }                                        
 
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) { 
+        //login form close                                       
         setVisible(false);
         dispose();
     }                                        
