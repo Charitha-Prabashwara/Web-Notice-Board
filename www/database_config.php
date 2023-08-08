@@ -10,7 +10,7 @@
        //Databse connection information 
        $serverADDR="localhost";
        $serverUserName="root";
-       $serverPassword="root"; 
+       $serverPassword=""; 
        //Database
        $databaseName = "seu";
        //connection Object
