@@ -74,3 +74,6 @@ These tables collectively enable the efficient management of users, news article
 
 ### JAVA GUI Application
 ![](markdownresources/java-stc.drawio.png)
+
+### WEB APPLICATION
+![](markdownresources/webd.drawio.png)
