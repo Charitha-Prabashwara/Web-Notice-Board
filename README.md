@@ -73,4 +73,4 @@ id(PRIMARY KEY / AUTOINCREMENT) | title(VARCHAR) | subtitle(VARCHAR) | content(V
 These tables collectively enable the efficient management of users, news articles, and notices, enhancing the functionality of the associated system or application.
 
 ### JAVA GUI Application
-![](markdownresources/java stc.drawio.png)
+![](markdownresources/java-stc.drawio.png)
