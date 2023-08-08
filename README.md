@@ -1,27 +1,39 @@
-Convenience: Users can access and post information at their convenience, eliminating the need to be physically present at a specific location to view or update notices.
+# WEB NOTICE BOARD
+A web notice board, also known as an online bulletin board or digital bulletin board, offers several benefits compared to traditional physical notice boards. Here are some of the key advantages:
 
-Real-time Updates: Information on a web notice board can be updated instantly. This is particularly useful for time-sensitive announcements or rapidly changing information.
+**Group members**
+>SEU/IS/20/ICT/001 - Prabhashwara T.H.M.C
+>SEU/IS/20/ICT/012 - Rajapaksha T.D
+>SEU/IS/20/ICT/033 - 
+>SEU/IS/20/ICT/046 - 
+>SEU/IS/20/ICT/070 - Karunarathna W.M.S.H.A
 
-Cost Savings: Traditional notice boards require physical materials like paper, printing supplies, and maintenance. A web notice board eliminates these costs, as it operates digitally.
+1. Accessibility: Web notice boards are accessible from anywhere with an internet connection. Users can view and interact with the content on the board using various devices, such as computers, tablets, and smartphones.
+ 
+2. Convenience: Users can access and post information at their convenience, eliminating the need to be physically present at a specific location to view or update notices.
 
-Environmentally Friendly: Since there's no need for physical materials like paper and ink, a web notice board contributes to a reduction in paper waste and environmental impact.
+3. Real-time Updates: Information on a web notice board can be updated instantly. This is particularly useful for time-sensitive announcements or rapidly changing information.
 
-Centralized Information: A web notice board serves as a centralized platform for all announcements, notices, and updates. This helps avoid clutter and confusion associated with multiple physical notice boards.
+4. Cost Savings: Traditional notice boards require physical materials like paper, printing supplies, and maintenance. A web notice board eliminates these costs, as it operates digitally.
 
-Searchability: Web notice boards often come with search functionality, making it easier for users to find specific information within a large pool of notices.
+5. Environmentally Friendly: Since there's no need for physical materials like paper and ink, a web notice board contributes to a reduction in paper waste and environmental impact.
 
-Multi-media Integration: Web notice boards can incorporate various types of media, such as images, videos, links, and attachments, enhancing the presentation and understanding of information.
+6. Centralized Information: A web notice board serves as a centralized platform for all announcements, notices, and updates. This helps avoid clutter and confusion associated with multiple physical notice boards.
 
-User Interaction: Depending on the platform, users may be able to comment, like, share, or interact with notices, promoting engagement and collaboration.
+7. Searchability: Web notice boards often come with search functionality, making it easier for users to find specific information within a large pool of notices.
 
-Remote Collaboration: Web notice boards facilitate collaboration among individuals or groups that may be physically distant. This is particularly beneficial for organizations with distributed teams or online learning environments.
+8. Multi-media Integration: Web notice boards can incorporate various types of media, such as images, videos, links, and attachments, enhancing the presentation and understanding of information.
 
-Scheduling and Organization: Notices can be organized by categories, tags, or dates, making it easier for users to navigate and locate relevant information.
+9. User Interaction: Depending on the platform, users may be able to comment, like, share, or interact with notices, promoting engagement and collaboration.
 
-Automatic Reminders: Some web notice board systems allow for scheduling automatic reminders for upcoming events or deadlines.
+10. Remote Collaboration: Web notice boards facilitate collaboration among individuals or groups that may be physically distant. This is particularly beneficial for organizations with distributed teams or online learning environments.
 
-Notifications: Users can receive notifications (email, app notifications, etc.) when new notices are posted or when there are updates to existing notices.
+11. Scheduling and Organization: Notices can be organized by categories, tags, or dates, making it easier for users to navigate and locate relevant information.
 
-Control and Moderation: Administrators can have better control over the content posted on the notice board, allowing them to review and moderate submissions before they are published.
+12. Automatic Reminders: Some web notice board systems allow for scheduling automatic reminders for upcoming events or deadlines.
 
-Analytics: Web notice board platforms often provide insights into user engagement, such as the number of views, interactions, and clicks on notices, helping administrators understand the effectiveness of their communications.
+13. Notifications: Users can receive notifications (email, app notifications, etc.) when new notices are posted or when there are updates to existing notices.
+
+14. Control and Moderation: Administrators can have better control over the content posted on the notice board, allowing them to review and moderate submissions before they are published.
+
+15. Analytics: Web notice board platforms often provide insights into user engagement, such as the number of views, interactions, and clicks on notices, helping administrators understand the effectiveness of their communications.
