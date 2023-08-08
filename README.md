@@ -2,11 +2,11 @@
 A web notice board, also known as an online bulletin board or digital bulletin board, offers several benefits compared to traditional physical notice boards. Here are some of the key advantages:
 
 **Group members**
->SEU/IS/20/ICT/001 - Prabhashwara T.H.M.C
->SEU/IS/20/ICT/012 - Rajapaksha T.D
->SEU/IS/20/ICT/033 - 
->SEU/IS/20/ICT/046 - 
->SEU/IS/20/ICT/070 - Karunarathna W.M.S.H.A
+>* SEU/IS/20/ICT/001 - Prabhashwara T.H.M.C
+>* SEU/IS/20/ICT/012 - Rajapaksha T.D
+>* SEU/IS/20/ICT/033 - 
+>* SEU/IS/20/ICT/046 - 
+>* SEU/IS/20/ICT/070 - Karunarathna W.M.S.H.A
 
 1. Accessibility: Web notice boards are accessible from anywhere with an internet connection. Users can view and interact with the content on the board using various devices, such as computers, tablets, and smartphones.
  
@@ -37,3 +37,8 @@ A web notice board, also known as an online bulletin board or digital bulletin b
 14. Control and Moderation: Administrators can have better control over the content posted on the notice board, allowing them to review and moderate submissions before they are published.
 
 15. Analytics: Web notice board platforms often provide insights into user engagement, such as the number of views, interactions, and clicks on notices, helping administrators understand the effectiveness of their communications.
+
+## Project architecture
+This is created by connecting a JAVA GUI APPLICATION, a DATABASE and a WEBSITE together. New News and Notice can be created, updated and deleted using the Java application.
+
+![](markdownresources/main1.png)
