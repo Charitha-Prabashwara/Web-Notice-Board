@@ -286,7 +286,7 @@ The Connector Class connects the Application with the Database. in the Configura
             }
         }
 ---
-#### USER Controller Class
+#### News Controller Class
 
 ---
         import java.sql.ResultSet;
