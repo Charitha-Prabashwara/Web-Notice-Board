@@ -574,4 +574,8 @@ And if you want to insert a new news, click the "Insert" button shown by number 
 
 ## Notice Form
 ![](markdownresources/noticeform.png)
+
+The number one shows that the user selected the notice. It is a combo box where you can choose to modify or delete the selected notice. If something goes wrong while selecting, updating, or deleting notice, the number 4 will be displayed in "Status".
+
+And if you want to insert a new notice, click the "Insert" button shown by number 5
 ### WEB APPLICATION
