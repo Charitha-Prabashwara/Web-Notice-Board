@@ -77,7 +77,7 @@ These tables collectively enable the efficient management of users, news article
 
 ####
 Database Connector Class
----java
+---js
 //SQL Librarys -begin
 import java.sql.SQLException;
 import java.sql.DriverManager;
