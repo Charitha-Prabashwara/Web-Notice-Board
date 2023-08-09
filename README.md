@@ -76,7 +76,7 @@ These tables collectively enable the efficient management of users, news article
 ![](markdownresources/java-stc.drawio.png)
 
 #### Database Connector Class
----
+---Java
             //SQL Librarys -begin
             import java.sql.SQLException;
             import java.sql.DriverManager;
@@ -111,15 +111,15 @@ These tables collectively enable the efficient management of users, news article
                     
                             //CONFIG
                     //DATABASE URL
-                    databaseLink = "localhost";
+                    databaseLink = "";
                     //DATABASE PORT
-                    port="3306";
+                    port="";
                     //DATABASE USERNAME
-                    userName = "root";
+                    userName = "";
                     //DATABASE PASSWORD
                     password = "";
                     //DATABASE NAME
-                    database="seu";
+                    database="";
 
                     
                     DB_PATH = "jdbc:mysql://" + databaseLink +":" + port + "/" + database;
