@@ -547,7 +547,10 @@ Updating the notice selected by the user.
 
 #### DeleteNotice()
 Delete the notice selected by the user
+## JAVA GUI FROMS
 
+### Login Form
+![](markdownresources/java-stc.drawio.png)
 
 ### WEB APPLICATION
-![](markdownresources/webd.drawio.png)
+![](markdownresources/loginform.PNG)

@@ -50,7 +50,7 @@ public class loginform extends javax.swing.JFrame {
         setType(java.awt.Window.Type.UTILITY);
 
         emailField.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        emailField.setText("zed.zero.fun@gmail.com");
+        emailField.setText("");
 
         jLabel1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jLabel1.setText("email   :");
