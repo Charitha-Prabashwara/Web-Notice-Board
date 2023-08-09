@@ -10,11 +10,14 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
         </li>
+        
+        <!--
         <li class="nav-item">
           <a class="nav-link" href="#">Exam Results</a>
         </li>
+        -->
        
-       
+       <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Marks</a>
           <ul class="dropdown-menu">
@@ -23,11 +26,14 @@
             
           </ul>
         </li>
+        -->
       </ul>
+      <!--
       <form class="d-flex" role="search" style="visibility: hidden;">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      -->
     </div>
   </div>
 </nav>

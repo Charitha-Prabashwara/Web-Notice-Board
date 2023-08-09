@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     <script src="assets/js/color-modes.js"></script>
 
-    <title>News</title>
+    <title>Notice</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
 
@@ -180,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
       </symbol>
     </svg>
-
+<!--
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
       <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
               id="bd-theme"
@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       </ul>
     </div>
 
-    
+-->  
 
 
 <?php require_once 'header.php'; ?>
@@ -224,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 <main class="container">
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
-    <img class="me-3" src="assets/img/bootstrap-logo-white.svg" alt="" width="48" height="38">
+    <img class="me-3" src="assets/img//UN.png" alt="" width="48" height="38">
     <div class="lh-1">
       <h1 class="h3 mb-0 text-white lh-1">South Eastern University of Sri lanka</h1>
       <small >Powerd by @ Faculty of Technology</small>
