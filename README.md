@@ -286,6 +286,12 @@ The Connector Class connects the Application with the Database. in the Configura
             }
         }
 ---
+##### Authenticate()
+inputs
+1. email
+2. password
+Checking the email address and password entered by the user. Checking the validity of the account.
+
 #### News Controller Class
 
 ---
