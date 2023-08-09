@@ -174,16 +174,16 @@ The Connector Class connects the Application with the Database. in the Configura
 > 1. databaselink
 >    For this, give the URL address of the database server where the database has been created.
 
-> 2. port
+> 2. **port**
 >    The port of the database server.
 
-> 3. userName
+> 3. **userName**
 >    The username of the user account.
 
-> 4. password
+> 4. **password**
 >    The password of the user account.
 
-> 5. database
+> 5. **database**
 >    Database name example:- users, testdatabase
 
 
