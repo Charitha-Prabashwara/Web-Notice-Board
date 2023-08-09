@@ -406,15 +406,17 @@ Check whether a correct connection can be established with the Database Server.
         }
 
 ---
+==highlight==
 ##### GetAllNews()
 input
 > userID
 
 Get all the News published by the user.
+==highlight==
 ##### GetNews()
 
 Retrieving the news selected by the user
-
+==highlight==
 ##### updateNews()
 input
 > title - Title of the news.
@@ -422,7 +424,7 @@ input
 > content - news content.
 
 Updating the news selected by the user.
-
+==highlight==
 #### DeleteNews()
 Delete the message selected by the user
 
