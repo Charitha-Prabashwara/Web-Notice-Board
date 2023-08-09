@@ -586,3 +586,4 @@ Either News or Notice, you can enter the News, Notice you want by using an inser
 It can be entered by entering the required content and clicking the "Insert Button".
 
 ### WEB APPLICATION
+![](markdownresources/webd.drawio.png)
