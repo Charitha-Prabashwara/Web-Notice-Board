@@ -45,7 +45,7 @@ This is created by connecting a JAVA GUI APPLICATION, a DATABASE and a WEBSITE t
 ### Database
 ![](markdownresources/databae.png)
 -----------------------------------------------------------
-[SQL Schema - Download and craete database(LINK)](markdownresources/seu.sql)
+[SQL Schema - Download and create database(LINK)](markdownresources/seu.sql)
 -----------------------------------------------------------
 Table structure.
 
@@ -558,5 +558,7 @@ If you want to exit, you can click the Close button. If you want to enter, click
 If the email address and password you entered are correct, you will be allowed to enter. An error message will appear if the email address or password is not valid.
 
 Finally, if there is a problem with the database server or a problem with the internet connection, an error message will appear.
+
+### Login Form
 
 ### WEB APPLICATION
