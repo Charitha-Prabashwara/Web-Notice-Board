@@ -406,17 +406,15 @@ Check whether a correct connection can be established with the Database Server.
         }
 
 ---
-==highlight==
 ##### GetAllNews()
 input
 > userID
 
 Get all the News published by the user.
-==highlight==
 ##### GetNews()
 
 Retrieving the news selected by the user
-==highlight==
+
 ##### updateNews()
 input
 > title - Title of the news.
@@ -424,9 +422,9 @@ input
 > content - news content.
 
 Updating the news selected by the user.
-==highlight==
+
 #### DeleteNews()
-Delete the message selected by the user
+Delete the news selected by the user
 
 #### Notice Controller Class
 ---
@@ -530,5 +528,26 @@ Delete the message selected by the user
     }
 
 ---
+##### GetAllNotice()
+input
+> userID
+
+Get all the Notice published by the user.
+##### GetNotice()
+
+Retrieving the Notice selected by the user
+
+##### updateNotice()
+input
+> title - Title of the Notice.
+> subtitle - Subtitle of the Notice.
+> content - notice content.
+
+Updating the notice selected by the user.
+
+#### DeleteNotice()
+Delete the notice selected by the user
+
+
 ### WEB APPLICATION
 ![](markdownresources/webd.drawio.png)
