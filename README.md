@@ -750,19 +750,19 @@ By this, the function of connecting the Database and the Website is fulfilled.
 
     ?>
 ---
-#### Get_latest5_News()
+#### **Get_latest5_News()**
 
 By using the database connection, the last entered News 5 will be retrieved.
 
-#### Get_News($news_id)
+#### **Get_News($news_id)**
 
 When the News Id is entered, the content related to it will be output.
 
-####  Get_All_News()
+####  **Get_All_News()**
 
 Outputs all the News in the database.
 
-####  Get_latest1_News()
+####  **Get_latest1_News()**
 
 Outputs the last record in News.
 
