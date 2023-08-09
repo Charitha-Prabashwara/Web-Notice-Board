@@ -627,3 +627,9 @@ It can be entered by entering the required content and clicking the "Insert Butt
     $conne = new Connection();
     ?>
 ---
+By this, the function of connecting the Database and the Website is fulfilled.
+
+> 1. **"serverADDR"** should be given the address of the database server.
+> 2. Give **"serverUserName"** the username of the database server account.
+> 3. Enter the database server account password for **"serverPassword"**.
+> 4. Give **"databaseName"** the name of the database.
