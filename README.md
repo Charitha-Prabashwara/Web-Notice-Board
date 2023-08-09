@@ -890,3 +890,13 @@ This is the first page of the "Web Notice Board" website. News and Notice pages 
 > Number 2 shows the News table. You can choose the insult.
 
 > Number 3 shows the Search tool. This allows you to search for content that is not displayed.
+
+### NOTICE
+
+![](markdownresources/webnotice.png)
+
+> Number 1 shows the Notice content section. If no notice is selected, the last entered news will be displayed automatically.
+
+> Number 2 shows the Notice table. You can choose the insult.
+
+> Number 3 shows the Search tool. This allows you to search for content that is not displayed.
