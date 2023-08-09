@@ -875,4 +875,10 @@ Outputs the last record in Notice.
 
 ## WEB INTERFACE
 
+### DASHBOARD
+
+![](markdownresources/webdashboard.png)
+
+This is the first page of the "Web Notice Board" website. News and Notice pages can be accessed. 5 News and 5 Notices are shown here last entered.
+
 
