@@ -550,7 +550,6 @@ Delete the notice selected by the user
 ## JAVA GUI FROMS
 
 ### Login Form
-![](markdownresources/java-stc.drawio.png)
+![](markdownresources/loginform.PNG)
 
 ### WEB APPLICATION
-![](markdownresources/loginform.PNG)
