@@ -89,8 +89,7 @@ import javax.swing.JOptionPane;//JSwING message dialog library
 
 
 public class DConnection {
-    //BEGIN Configuration Section-----------------------------
-
+    //BEGIN Configuration Section
     final String DRIVER ="com.mysql.jdbc.Driver";//DATABASE DRIVER
 
     //# +++++++++++++++++++++++++++++++++++++++++++++++
@@ -126,7 +125,7 @@ public class DConnection {
         //# ++++++++++++++++++++++++++++++++++
         DB_PATH = "jdbc:mysql://" + databaseLink +":" + port + "/" + database;
     }
-    //END Configuration Section -------------------------------
+    //END Configuration Section 
 
     public void connect()  throws SQLException , Exception{
         // Crate database connection
