@@ -587,3 +587,43 @@ It can be entered by entering the required content and clicking the "Insert Butt
 
 ### WEB APPLICATION
 ![](markdownresources/webd.drawio.png)
+
+
+#### database_config(Connctor)
+
+---
+    <?php
+    class Connection{
+        private $serverADDR;
+        private $serverUserName;
+        private $serverPassword;
+        private $databaseName;
+        public $connectionObj;
+    
+        function __construct() {
+        //Databse connection information 
+        $serverADDR="";
+        $serverUserName="";
+        $serverPassword=""; 
+        //Database
+        $databaseName = "";
+        //connection Object
+
+            // Create connection
+            $conn = new mysqli($serverADDR, $serverUserName, $serverPassword);
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }else{
+            // echo "Connected successfully";
+            }
+            
+            return $conn;
+    
+        }  
+    }
+
+    $conne = new Connection();
+    ?>
+---
