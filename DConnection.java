@@ -15,24 +15,36 @@ public class DConnection {
 
     //# +++++++++++++++++++++++++++++++++++++++++++++++
         //CONFIG
-    String DB_PATH = "jdbc:mysql://localhost:3306/seu";//DATABASE LINK:PORT/DBNAME
+    String DB_PATH = null;
+    //"jdbc:mysql://localhost:3306/seu";//DATABASE LINK:PORT/DBNAME
     //# +++++++++++++++++++++++++++++++++++++++++++++++
     
     Connection conn; //connection
     Statement stmt = null;//Statement
+    
+    String databaseLink = null;
+    String port = null;
 
     String userName = null;//username
     String password = null;//password
+    String database = null;//databasename.
 
     DConnection(){
         //# ++++++++++++++++++++++++++++++++++
                 //CONFIG
+        //DATABASE URL
+        databaseLink = "localhost";
+        //DATABASE PORT
+        port="3306";
         //DATABASE USERNAME
         userName = "root";
         //DATABASE PASSWORD
         password = "";
+        //DATABASE NAME
+        database="seu";
 
         //# ++++++++++++++++++++++++++++++++++
+        DB_PATH = "jdbc:mysql://" + databaseLink +":" + port + "/" + database;
     }
     //END Configuration Section -------------------------------
 
