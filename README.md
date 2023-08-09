@@ -552,4 +552,11 @@ Delete the notice selected by the user
 ### Login Form
 ![](markdownresources/loginform.PNG)
 
+First, enter the email address. According to international standards, if an incorrect email address is entered, an error message will appear. Second, enter the password.
+If you want to exit, you can click the Close button. If you want to enter, click the Login Button.
+ 
+If the email address and password you entered are correct, you will be allowed to enter. An error message will appear if the email address or password is not valid.
+
+Finally, if there is a problem with the database server or a problem with the internet connection, an error message will appear.
+
 ### WEB APPLICATION
