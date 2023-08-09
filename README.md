@@ -4,8 +4,8 @@ A web notice board, also known as an online bulletin board or digital bulletin b
 **Group members**
 >* SEU/IS/20/ICT/001 - Prabhashwara T.H.M.C
 >* SEU/IS/20/ICT/012 - Rajapaksha T.D
->* SEU/IS/20/ICT/033 - 
->* SEU/IS/20/ICT/046 - 
+>* SEU/IS/20/ICT/033 - Yapa T.S.N
+>* SEU/IS/20/ICT/046 - Dilshani H.S.U
 >* SEU/IS/20/ICT/070 - Karunarathna W.M.S.H.A
 
 1. Accessibility: Web notice boards are accessible from anywhere with an internet connection. Users can view and interact with the content on the board using various devices, such as computers, tablets, and smartphones.
