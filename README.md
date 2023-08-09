@@ -297,6 +297,7 @@ Checking the email address and password entered by the user. Checking the validi
 inputs
 > 1. email.
 > 2. password.
+
 Getting the user details belonging to the valid User Account into the program.
 
 ##### testConnection()
@@ -405,6 +406,26 @@ Check whether a correct connection can be established with the Database Server.
         }
 
 ---
+##### GetAllNews()
+input
+> userID
+
+Get all the News published by the user.
+##### GetNews()
+
+Retrieving the news selected by the user
+
+##### updateNews()
+input
+> title - Title of the news.
+> subtitle - Subtitle of the news.
+> content - news content.
+
+Updating the news selected by the user.
+
+#### DeleteNews()
+Delete the message selected by the user
+
 #### Notice Controller Class
 ---
     import java.sql.ResultSet;
