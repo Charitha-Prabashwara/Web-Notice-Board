@@ -77,8 +77,8 @@ These tables collectively enable the efficient management of users, news article
 
 ####
 Database Connector Class
----js
-//SQL Librarys -begin
+---java
+*//SQL Librarys -begin
 import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -92,11 +92,11 @@ public class DConnection {
     //BEGIN Configuration Section
     final String DRIVER ="com.mysql.jdbc.Driver";//DATABASE DRIVER
 
-    //# +++++++++++++++++++++++++++++++++++++++++++++++
+   
         //CONFIG
     String DB_PATH = null;
     //"jdbc:mysql://localhost:3306/seu";//DATABASE LINK:PORT/DBNAME
-    //# +++++++++++++++++++++++++++++++++++++++++++++++
+   
     
     Connection conn; //connection
     Statement stmt = null;//Statement
@@ -109,7 +109,7 @@ public class DConnection {
     String database = null;//databasename.
 
     DConnection(){
-        //# ++++++++++++++++++++++++++++++++++
+        
                 //CONFIG
         //DATABASE URL
         databaseLink = "localhost";
@@ -122,7 +122,7 @@ public class DConnection {
         //DATABASE NAME
         database="seu";
 
-        //# ++++++++++++++++++++++++++++++++++
+        
         DB_PATH = "jdbc:mysql://" + databaseLink +":" + port + "/" + database;
     }
     //END Configuration Section 
