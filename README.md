@@ -634,7 +634,7 @@ By this, the function of connecting the Database and the Website is fulfilled.
 > 3. Enter the database server account password for **"serverPassword"**.
 > 4. Give **"databaseName"** the name of the database.
 
-#### getNews
+### getNews
 
 ---
     <?php
@@ -766,7 +766,7 @@ Outputs all the News in the database.
 
 Outputs the last record in News.
 
-#### getnoitce
+### getnoitce
 
 ---
     <?php
@@ -857,4 +857,19 @@ Outputs the last record in News.
 
     ?>
 ---
+#### **Get_latest5_Notice()**
+
+By using the database connection, the last entered Notice 5 will be retrieved.
+
+#### **Get_Notice($notice_id)**
+
+When the Notice Id is entered, the content related to it will be output.
+
+####  **Get_All_Notice()**
+
+Outputs all the Notice in the database.
+
+####  **Get_latest1_Notice()**
+
+Outputs the last record in Notice.
 
