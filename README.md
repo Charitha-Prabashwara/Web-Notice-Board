@@ -580,7 +580,7 @@ The number one shows that the user selected the notice. It is a combo box where 
 And if you want to insert a new notice, click the "Insert" button shown by number 5
 
 ## Insert Form
-![](markdownresources/databae.png)
+![](markdownresources/insertform.png)
 
 Either News or Notice, you can enter the News, Notice you want by using an insert form.
 It can be entered by entering the required content and clicking the "Insert Button".
