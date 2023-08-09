@@ -75,9 +75,8 @@ These tables collectively enable the efficient management of users, news article
 ### JAVA GUI Application
 ![](markdownresources/java-stc.drawio.png)
 
-####
-Database Connector Class
----java
+#### Database Connector Class
+---javascript
 
             //SQL Librarys -begin
             import java.sql.SQLException;
