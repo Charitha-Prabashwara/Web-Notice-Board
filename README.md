@@ -76,7 +76,7 @@ These tables collectively enable the efficient management of users, news article
 ![](markdownresources/java-stc.drawio.png)
 
 #### Database Connector Class
----Java
+--- Java
             //SQL Librarys -begin
             import java.sql.SQLException;
             import java.sql.DriverManager;
