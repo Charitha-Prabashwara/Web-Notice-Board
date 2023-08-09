@@ -26,14 +26,8 @@
         }
            
         return $conn;
-
-       
-       
-    }
-
-     
-
-   
+ 
+    }  
 }
 
  $conne = new Connection();
