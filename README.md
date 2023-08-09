@@ -560,5 +560,15 @@ If the email address and password you entered are correct, you will be allowed t
 Finally, if there is a problem with the database server or a problem with the internet connection, an error message will appear.
 
 ### Login Form
+![](markdownresources/mainform.png)
 
+If you entered the email address and password correctly, your name and email address will appear.
+You can access the Notice by clicking the button number one. You can access News by clicking the number two button.
+
+## News Form
+![](markdownresources/newsform.png)
+
+The number one shows that the user selected the news. It is a combo box where you can choose to modify or delete the selected news. If something goes wrong while selecting, updating, or deleting news, the number 4 will be displayed in "Status".
+
+And if you want to insert a new news, click the "Insert" button shown by number 7.
 ### WEB APPLICATION
