@@ -49,7 +49,7 @@ This is created by connecting a JAVA GUI APPLICATION, a DATABASE and a WEBSITE t
 ### Database
 ![](markdownresources/databae.png)
 -----------------------------------------------------------
-[SQL Schema - Download and create database(LINK)](markdownresources/seu.sql)
+[SQL - Download and create database(LINK)](markdownresources/seu.sql)
 -----------------------------------------------------------
 Table structure.
 
