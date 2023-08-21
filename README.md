@@ -2447,3 +2447,46 @@ This is the first page of the "Web Notice Board" website. News and Notice pages 
 > Number 2 shows the Notice table. You can choose the insult.
 
 > Number 3 shows the Search tool. This allows you to search for content that is not displayed.
+
+
+### Download Source Code
+
+1. Install Git (if not already installed):
+
+If you haven't already, you need to install Git on your local machine. You can download Git from the official website: https://git-scm.com/downloads
+
+2. Open a Terminal or Command Prompt:
+
+On Windows, use the Command Prompt or PowerShell. On macOS or Linux, use the Terminal.
+
+3. Navigate to the Directory Where You Want to Clone the Repository:
+
+Use the cd command to navigate to the directory where you want to create a local copy of the repository. For example:
+
+---console
+    cd /path/to/your/directory
+---
+
+4. Clone the Repository:
+
+Use the git clone command followed by the URL of the Git repository you want to clone. You can find the URL on the repository's GitHub page (or whichever platform it's hosted on). The command format is:
+
+---console
+    git clone <repository_url>
+---
+
+For example:
+
+---console
+    git clone https://github.com/username/repository-name.git
+---
+
+5. Navigate to the Cloned Repository:
+
+Use the cd command to navigate into the cloned repository directory:
+
+---console
+    cd repository-name
+---
+
+Now you have successfully cloned the Git repository to your local machine, and you can start working with its files.
