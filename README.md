@@ -2457,7 +2457,7 @@ This is the first page of the "Web Notice Board" website. News and Notice pages 
 
 1. Install Git (if not already installed):
 
->> If you haven't already, you need to install Git on your local machine. You can download Git from the official website: https://git-scm.com/downloads
+> If you haven't already, you need to install Git on your local machine. You can download Git from the official website: https://git-scm.com/downloads
 
 2. Open a Terminal or Command Prompt:
 
@@ -2465,7 +2465,7 @@ This is the first page of the "Web Notice Board" website. News and Notice pages 
 
 3. Navigate to the Directory Where You Want to Clone the Repository:
 
->> Use the cd command to navigate to the directory where you want to create a local copy of the repository. For example:
+> Use the cd command to navigate to the directory where you want to create a local copy of the repository. For example:
 
 ---
     cd /path/to/your/directory
@@ -2473,7 +2473,7 @@ This is the first page of the "Web Notice Board" website. News and Notice pages 
 
 4. Clone the Repository:
 
->> Use the git clone command followed by the URL of the Git repository you want to clone. You can find the URL on the repository's GitHub page (or whichever platform it's hosted on). The command format is:
+> Use the git clone command followed by the URL of the Git repository you want to clone. You can find the URL on the repository's GitHub page (or whichever platform it's hosted on). The command format is:
 
 ---
     git clone <repository_url>
@@ -2487,7 +2487,7 @@ For example:
 
 5. Navigate to the Cloned Repository:
 
->>  Use the cd command to navigate into the cloned repository directory:
+>  Use the cd command to navigate into the cloned repository directory:
 
 ---
     cd repository-name
