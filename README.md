@@ -774,12 +774,561 @@ Finally, if there is a problem with the database server or a problem with the in
 If you entered the email address and password correctly, your name and email address will appear.
 You can access the Notice by clicking the button number one. You can access News by clicking the number two button.
 
+---
+    import javax.swing.ImageIcon;
+    import javax.swing.JOptionPane;
+
+    public class mainform extends javax.swing.JFrame {
+
+        String userID, firstName, lastName, email;
+        String[] userdata = new String[4];//user data array.
+    
+        News newsObj;
+        Notice noticeObj;
+        UserController userObj;
+
+        mainform(String[] user) {
+            initComponents();
+
+            this.userID = user[0];
+            this.firstName = user[1];
+            this.lastName = user[2];
+            this.email= user[3];
+            //create userdata 
+            userdata[0] = this.userID;
+            userdata[1] = this.firstName;
+            userdata[2] = this.lastName;
+            userdata[3] = this.email;
+            //System.out.println(userdata[0]);
+            
+        
+            newsObj = new News(userdata);// news controller
+            noticeObj = new Notice(userdata);//Notice controller
+            userObj = new UserController();// User Controller
+            
+            //set form title
+            setTitle("WEB NOTICE BOARD: " + userdata[1] + " " + userdata[2] +" ( " + userdata[3] + " )");
+            //check database connection
+            try {
+                userObj.testConnection();
+                jMenu4.setText("Connection Status: Connected.");
+            } catch (Exception e) {
+                jMenu4.setText("Connection Status: Disconnected.");
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+            }
+
+        }
+
+        mainform(){
+            initComponents();
+        }
+
+
+
+        @SuppressWarnings("unchecked")
+                        
+        private void initComponents() {
+
+            jInternalFrame1 = new javax.swing.JInternalFrame();
+            btnNews = new javax.swing.JButton();
+            btnNotice = new javax.swing.JButton();
+            jPanel1 = new javax.swing.JPanel();
+            jLabel1 = new javax.swing.JLabel();
+            jMenuBar2 = new javax.swing.JMenuBar();
+            jMenu4 = new javax.swing.JMenu();
+
+            jInternalFrame1.setVisible(true);
+
+            javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+            jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+            jInternalFrame1Layout.setHorizontalGroup(
+                jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 0, Short.MAX_VALUE)
+            );
+            jInternalFrame1Layout.setVerticalGroup(
+                jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 0, Short.MAX_VALUE)
+            );
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setTitle("WEB NOTICE BOARD: ");
+            setBackground(new java.awt.Color(255, 255, 255));
+            setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
+            setResizable(false);
+            setType(java.awt.Window.Type.UTILITY);
+
+            btnNews.setText("University News");
+            btnNews.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnNewsActionPerformed(evt);
+                }
+            });
+
+            btnNotice.setText("University Notice");
+            btnNotice.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnNoticeActionPerformed(evt);
+                }
+            });
+
+            jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("img/mainbackground.jpg"))); // NOI18N
+
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, Short.MAX_VALUE)
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            );
+
+            jMenuBar2.setBackground(new java.awt.Color(255, 255, 102));
+
+            //jMenu4.setText("Connection Status: Connected");
+            jMenuBar2.add(jMenu4);
+
+            setJMenuBar(jMenuBar2);
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnNotice, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNews, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(14, 14, 14)
+                    .addComponent(btnNews, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btnNotice, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(204, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+
+            pack();
+        }// </editor-fold>                        
+
+        private void btnNewsActionPerformed(java.awt.event.ActionEvent evt) {    
+            //news form show
+            try {
+                newsObj.setVisible(true);
+                setVisible(false);
+                dispose();
+            } catch (Exception e) {
+                //check errors
+                JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
+            }                                       
+        }                                       
+
+        private void btnNoticeActionPerformed(java.awt.event.ActionEvent evt) {                                          
+            //notice form show
+            try {
+            noticeObj.setVisible(true);
+                setVisible(false);
+                dispose();
+            } catch (Exception e) {
+                //check errors
+                JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
+            }
+        }                                         
+
+    
+        public static void main(String args[]) {
+        
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(mainform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(mainform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(mainform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(mainform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        
+
+        
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    //new mainform(userdata).setVisible(true);
+                }
+            });
+        }
+
+        // Variables declaration - do not modify                     
+        private javax.swing.JButton btnNews;
+        private javax.swing.JButton btnNotice;
+        private javax.swing.JInternalFrame jInternalFrame1;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JMenu jMenu4;
+        private javax.swing.JMenuBar jMenuBar2;
+        private javax.swing.JPanel jPanel1;
+        // End of variables declaration                   
+    }
+
+---
+
 ## News Form
 ![](markdownresources/newsform.png)
 
 The number one shows that the user selected the news. It is a combo box where you can choose to modify or delete the selected news. If something goes wrong while selecting, updating, or deleting news, the number 4 will be displayed in "Status".
 
 And if you want to insert a new news, click the "Insert" button shown by number 7.
+
+---
+    import javax.swing.JOptionPane;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
+
+    public class News extends javax.swing.JFrame {
+        String userId, firstName, lastName, email;
+        String[] userdata = new String[4];
+        // news controller
+        NewsController news_cont = new NewsController();
+        
+        public News(String[] user) {
+            
+            this.userId = user[0];
+            this.firstName = user[1];
+            this.lastName = user[2];
+            this.email= user[3];
+            //create userdata
+            userdata[0] = this.userId;
+            userdata[1] = this.firstName;
+            userdata[2] = this.lastName;
+            userdata[3] = this.email;
+
+            initComponents();
+            fromreset();
+            
+
+        }
+
+        @SuppressWarnings("unchecked")
+                                
+        private void initComponents() {
+
+            selectCombo = new javax.swing.JComboBox<>();
+            jLabel1 = new javax.swing.JLabel();
+            btnInsert = new javax.swing.JButton();
+            jLabel2 = new javax.swing.JLabel();
+            jTextField1 = new javax.swing.JTextField();
+            jLabel3 = new javax.swing.JLabel();
+            jTextField2 = new javax.swing.JTextField();
+            jScrollPane1 = new javax.swing.JScrollPane();
+            jTextArea1 = new javax.swing.JTextArea();
+            btnUpdate = new javax.swing.JButton();
+            btnDelete = new javax.swing.JButton();
+            statusLabel = new javax.swing.JLabel();
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+            // show form title
+            setTitle("News : " + this.firstName + "( " + this.email + ")");
+
+            selectCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+            
+            addWindowListener(new java.awt.event.WindowAdapter() {
+                public void windowClosing(java.awt.event.WindowEvent evt) {
+                    formWindowClosing(evt);
+                }
+            });
+            
+            
+            selectCombo.addActionListener(new java.awt.event.ActionListener() {
+            
+                public void actionPerformed(java.awt.event.ActionEvent evt){
+                    try {
+                        selectComboActionPerformed(evt);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            jLabel1.setText("Select News");
+
+            btnInsert.setText("Insert");
+            btnInsert.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnInsertActionPerformed(evt);
+                }
+            });
+
+            jLabel2.setText("Title");
+
+            // jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+            //         jTextField1ActionPerformed(evt);
+            //     }
+            // });
+
+            jLabel3.setText("Subtitle");
+
+            jTextArea1.setColumns(20);
+            jTextArea1.setRows(5);
+            jScrollPane1.setViewportView(jTextArea1);
+
+            btnUpdate.setText("Update");
+            btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    try {
+                        btnUpdateActionPerformed(evt);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            btnDelete.setText("Delete");
+            btnDelete.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnDeleteActionPerformed(evt);
+                }
+            });
+
+            statusLabel.setText("Status: ");
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(statusLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnUpdate))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField2)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(selectCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap())
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(selectCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInsert))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate)
+                        .addComponent(btnDelete)
+                        .addComponent(statusLabel))
+                    .addContainerGap())
+            );
+
+            pack();
+        }                       
+
+        private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) { 
+            //show insert form
+        System.out.println(userdata[0]);
+        insertNews ns =  new insertNews(userdata);
+        setEnabled(false);
+        ns.setVisible(true);
+        setEnabled(true);
+        
+        }                                         
+
+        private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception {                                          
+        //news update
+            try {
+                //send to database
+                boolean result = news_cont.updateNews(jTextField1.getText().toString(), jTextField2.getText().toString(), jTextArea1.getText().toString());
+                //check connection and formreset
+                if(result){
+                    fromreset();
+                    statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                    statusLabel.setText("Status: " + "Connection Success..");
+                }else{
+                    statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                    statusLabel.setText("Status: " + "Connection Error..");
+                }
+                
+            } catch (Exception e) {
+                //show updation error
+                statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                statusLabel.setText("Status: "+ e.getMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
+            
+            }
+            
+        }                                         
+
+        public void fromreset(){
+            //form reset
+            selectCombo.removeAllItems();
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextArea1.setText("");
+            news_cont.selected_news_id=null;
+            news_cont.userId=userId;
+
+            try {
+                //get all news
+                ResultSet result = news_cont.GetAllNews(userId);
+                while(result.next()){
+                    //set combobox
+                    selectCombo.addItem(result.getString("id") + ":" + result.getString("title"));
+                }
+                statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                statusLabel.setText("Status: " + "Connection Success..");
+            } catch (Exception e) {
+                //check connection error
+                statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                statusLabel.setText("Status: "+ e.getMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
+            }
+        }                                          
+
+        private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {     
+            //delete selected news                                     
+            int response = JOptionPane.showConfirmDialog(this, "Do you want to delete ?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(response == JOptionPane.YES_OPTION){
+                try {
+                    // connect and delete selected news.
+                    news_cont.DeleteNews();
+                    //form reset
+                    fromreset();
+                    statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                    statusLabel.setText("Status: " + "Connection Success..");
+                } catch (Exception e) {
+                    //show errors.
+                    statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                    statusLabel.setText("Status: "+ e.getMessage().toString());
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+                }
+            }
+        }                                         
+
+        private void selectComboActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception{
+            //select news                                       
+            String comob_selected_item = selectCombo.getSelectedItem().toString();
+            //System.out.println(comob_selected_item);
+            String[] splited = comob_selected_item.split(":");
+            news_cont.selected_news_id = splited[0];
+            System.out.println(news_cont.selected_news_id);
+
+            
+            try {
+                //get selected news
+                ResultSet result = news_cont.GetNews();
+                
+                while(result.next()){
+                    //set field
+                    jTextField1.setText(result.getString("title"));
+                    jTextField2.setText(result.getString("subtitle"));
+                    jTextArea1.setText(result.getString("content"));
+                    break;
+                }
+                statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                statusLabel.setText("Status: " + "Connection Success..");
+                
+            } catch (Exception e) {
+                //show error
+                statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                statusLabel.setText("Status: "+ e.getMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+            }
+
+        }
+        
+        private void formWindowClosing(java.awt.event.WindowEvent evt) { 
+            //handle formclose event and show mainform                                  
+            new  mainform(userdata).setVisible(true);
+            dispose();  
+        } 
+        public static void main(String args[]) {
+
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(News.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(News.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(News.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(News.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    
+                }
+            });
+        }
+
+        // Variables declaration - do not modify                     
+        private javax.swing.JButton btnDelete;
+        private javax.swing.JButton btnInsert;
+        private javax.swing.JButton btnUpdate;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JLabel jLabel3;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JTextArea jTextArea1;
+        private javax.swing.JTextField jTextField1;
+        private javax.swing.JTextField jTextField2;
+        private javax.swing.JComboBox<String> selectCombo;
+        private javax.swing.JLabel statusLabel;
+        // End of variables declaration                   
+    }
+
+---
 
 ## Notice Form
 ![](markdownresources/noticeform.png)
@@ -788,11 +1337,800 @@ The number one shows that the user selected the notice. It is a combo box where 
 
 And if you want to insert a new notice, click the "Insert" button shown by number 5
 
+---
+    import javax.swing.JOptionPane;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
+
+    public class Notice extends javax.swing.JFrame {
+        String userId, firstName, lastName, email;
+        String[] userdata = new String[4];
+
+        NoticeController notice_cont = new NoticeController();
+        
+        public Notice(String[] user) {
+            
+            this.userId = user[0];
+            this.firstName = user[1];
+            this.lastName = user[2];
+            this.email= user[3];
+            //userdata
+            userdata[0] = this.userId;
+            userdata[1] = this.firstName;
+            userdata[2] = this.lastName;
+            userdata[3] = this.email;
+
+            initComponents();
+            //fromreset
+            fromreset();
+            
+
+        }
+
+        @SuppressWarnings("unchecked")
+                        
+        private void initComponents() {
+
+            selectCombo = new javax.swing.JComboBox<>();
+            jLabel1 = new javax.swing.JLabel();
+            btnInsert = new javax.swing.JButton();
+            jLabel2 = new javax.swing.JLabel();
+            jTextField1 = new javax.swing.JTextField();
+            jLabel3 = new javax.swing.JLabel();
+            jTextField2 = new javax.swing.JTextField();
+            jScrollPane1 = new javax.swing.JScrollPane();
+            jTextArea1 = new javax.swing.JTextArea();
+            btnUpdate = new javax.swing.JButton();
+            btnDelete = new javax.swing.JButton();
+            statusLabel = new javax.swing.JLabel();
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+            //set form title
+            setTitle("Notice : " + this.firstName + "( " + this.email + ")");
+
+            selectCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+            
+            addWindowListener(new java.awt.event.WindowAdapter() {
+                public void windowClosing(java.awt.event.WindowEvent evt) {
+                    formWindowClosing(evt);
+                }
+            });
+            
+            
+            selectCombo.addActionListener(new java.awt.event.ActionListener() {
+            
+                public void actionPerformed(java.awt.event.ActionEvent evt){
+                    try {
+                        selectComboActionPerformed(evt);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            jLabel1.setText("Select Notice");
+
+            btnInsert.setText("Insert");
+            btnInsert.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnInsertActionPerformed(evt);
+                }
+            });
+
+            jLabel2.setText("Title");
+
+            jTextField1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextField1ActionPerformed(evt);
+                }
+            });
+
+            jLabel3.setText("Subtitle");
+
+            jTextArea1.setColumns(20);
+            jTextArea1.setRows(5);
+            jScrollPane1.setViewportView(jTextArea1);
+
+            btnUpdate.setText("Update");
+            btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    try {
+                        btnUpdateActionPerformed(evt);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            btnDelete.setText("Delete");
+            btnDelete.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnDeleteActionPerformed(evt);
+                }
+            });
+
+            statusLabel.setText("Status: ");
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(statusLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnUpdate))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField2)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(selectCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap())
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(selectCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInsert))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate)
+                        .addComponent(btnDelete)
+                        .addComponent(statusLabel))
+                    .addContainerGap())
+            );
+
+            pack();
+        }// </editor-fold>                        
+
+        private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {
+            //show insertform 
+        System.out.println(userdata[0]);
+        insertNotice ns =  new insertNotice(userdata);
+        setEnabled(false);
+        ns.setVisible(true);
+        setEnabled(true);
+        
+        }                                         
+
+        private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception {                                          
+        
+            try {
+                //connect and update selected notice
+                boolean result = notice_cont.updateNotice(jTextField1.getText().toString(), jTextField2.getText().toString(), jTextArea1.getText().toString());
+                if(result){
+                    fromreset();
+                    statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                    statusLabel.setText("Status: " + "Connection Success..");
+                }else{
+                    statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                    statusLabel.setText("Status: " + "Connection Error..");
+                }
+                
+            } catch (Exception e) {
+
+                statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                statusLabel.setText("Status: "+ e.getMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
+            
+            }
+            
+        }                                         
+
+        private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+            // TODO add your handling code here:
+        } 
+        public void fromreset(){
+            selectCombo.removeAllItems();
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextArea1.setText("");
+            notice_cont.selected_notice_id=null;
+            notice_cont.userId=userId;
+
+            try {
+                ResultSet result = notice_cont.GetAllNotice(userId);
+                while(result.next()){
+                    selectCombo.addItem(result.getString("id") + ":" + result.getString("title"));
+                }
+                statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                statusLabel.setText("Status: " + "Connection Success..");
+            } catch (Exception e) {
+                statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                statusLabel.setText("Status: "+ e.getMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage().toString(), "ERROR", 3);
+            }
+        }                                          
+
+        private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                          
+            int response = JOptionPane.showConfirmDialog(this, "Do you want to delete ?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(response == JOptionPane.YES_OPTION){
+                try {
+                    notice_cont.DeleteNotice();
+                    fromreset();
+                    statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                    statusLabel.setText("Status: " + "Connection Success..");
+                } catch (Exception e) {
+                    statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                    statusLabel.setText("Status: "+ e.getMessage().toString());
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+                }
+            }
+        }                                         
+
+        private void selectComboActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, Exception{
+                                                    
+            String comob_selected_item = selectCombo.getSelectedItem().toString();
+            //System.out.println(comob_selected_item);
+            String[] splited = comob_selected_item.split(":");
+            notice_cont.selected_notice_id = splited[0];
+            System.out.println(notice_cont.selected_notice_id);
+
+            
+            try {
+                ResultSet result = notice_cont.GetNotice();
+                while(result.next()){
+                    jTextField1.setText(result.getString("title"));
+                    jTextField2.setText(result.getString("subtitle"));
+                    jTextArea1.setText(result.getString("content"));
+                    break;
+                }
+                statusLabel.setForeground(new java.awt.Color(10, 250, 13));
+                statusLabel.setText("Status: " + "Connection Success..");
+                
+            } catch (Exception e) {
+                statusLabel.setForeground(new java.awt.Color(239, 13, 13));
+                statusLabel.setText("Status: "+ e.getMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+            }
+
+        }
+        
+        private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
+            new  mainform(userdata).setVisible(true);
+            dispose();  
+        } 
+
+    
+        public static void main(String args[]) {
+    
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(Notice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(Notice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(Notice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(Notice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    
+                }
+            });
+        }
+
+        // Variables declaration - do not modify                     
+        private javax.swing.JButton btnDelete;
+        private javax.swing.JButton btnInsert;
+        private javax.swing.JButton btnUpdate;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JLabel jLabel3;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JTextArea jTextArea1;
+        private javax.swing.JTextField jTextField1;
+        private javax.swing.JTextField jTextField2;
+        private javax.swing.JComboBox<String> selectCombo;
+        private javax.swing.JLabel statusLabel;
+        // End of variables declaration                   
+    }
+
+---
+
 ## Insert Form
 ![](markdownresources/insertform.png)
 
 Either News or Notice, you can enter the News, Notice you want by using an insert form.
 It can be entered by entering the required content and clicking the "Insert Button".
+
+#### News Insert Form
+
+---
+    import javax.swing.JOptionPane;
+
+    public class insertNews extends javax.swing.JFrame {
+        String userid, firstName, lastName, email;
+
+        public insertNews(String[] user) {
+            
+            this.userid  = user[0];
+            this.firstName= user[1];
+            this.lastName = user[2];
+            this.email = user[3];
+            initComponents();
+        }
+        @SuppressWarnings("unchecked")
+                            
+        private void initComponents() {
+
+            jLabel1 = new javax.swing.JLabel();
+            jLabel2 = new javax.swing.JLabel();
+            titleField = new javax.swing.JTextField();
+            subtitleField = new javax.swing.JTextField();
+            jScrollPane1 = new javax.swing.JScrollPane();
+            contentField = new javax.swing.JTextArea();
+            btnInsert = new javax.swing.JButton();
+            btnClose = new javax.swing.JButton();
+            labError = new javax.swing.JLabel();
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+            setTitle("Publish New: " + this.firstName + "( " + this.email + ")");
+            setType(java.awt.Window.Type.UTILITY);
+            setForeground(new java.awt.Color(255, 0, 0));
+
+            jLabel1.setText("Title");
+
+            jLabel2.setText("Subtitle");
+
+            titleField.setBackground(new java.awt.Color(255, 215, 213));
+            titleField.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    titleFieldActionPerformed(evt);
+                }
+            });
+
+            subtitleField.setBackground(new java.awt.Color(255, 215, 213));
+
+            contentField.setColumns(20);
+            contentField.setRows(5);
+            jScrollPane1.setViewportView(contentField);
+
+            btnInsert.setText("Insert");
+            btnInsert.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnInsertActionPerformed(evt);
+                }
+            });
+
+            btnClose.setText("Close");
+            btnClose.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnCloseActionPerformed(evt);
+                }
+            });
+
+            //labError.setForeground(new java.awt.Color(239, 13, 13));
+            labError.setText("Status: ");
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(titleField)
+                                .addComponent(subtitleField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(labError)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnClose)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnInsert)))
+                    .addContainerGap())
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(subtitleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnInsert)
+                        .addComponent(btnClose)
+                        .addComponent(labError))
+                    .addContainerGap())
+            );
+
+            pack();
+        }// </editor-fold>                        
+
+        private void titleFieldActionPerformed(java.awt.event.ActionEvent evt) {                                           
+            // TODO add your handling code here:
+        }                                          
+
+        private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) { 
+            String title, subtitle, content;
+            
+            title = titleField.getText();
+            subtitle = subtitleField.getText();
+            content = contentField.getText();
+
+            try {
+
+                if(!(title.length()>255)){
+
+                    if(!(subtitle.length()>255)){
+                        
+
+                        // null check or empty check
+                        if(!(title.equals(null) || title.equals(""))){
+
+                            if(!(subtitle.equals(null) || subtitle.equals(""))){
+
+                                //send to database
+                                
+                                boolean result= new NewsController().insertNewNews(title, subtitle, content, userid);
+
+                                if(!result){
+                                    throw new RuntimeException("Insertion incomplete");
+                                }else{
+
+                                    titleField.setText("");
+                                    subtitleField.setText("");
+                                    contentField.setText("");
+
+                                    labError.setForeground(new java.awt.Color(0, 240, 13));
+                                    labError.setText("SUCESS: "+ "Insertion Successfully.");
+
+                                    JOptionPane.showMessageDialog(null, "Insertion Successfully.");
+                                }
+
+                            }else{
+                                throw new RuntimeException("Subtitle shouldn't be empty or null.");
+                            }
+                        }else{
+                        throw new RuntimeException("Title shouldn't be empty or null.");
+                        }
+                    }else{
+                        throw new RuntimeException("Subtitle length shouldn't be greater than 255");
+                    }
+            }else{
+                throw new RuntimeException("Title length shouldn't be greater than 255");    
+            }
+                
+            } catch (Exception e) {
+
+                labError.setForeground(new java.awt.Color(239, 13, 13));
+                labError.setText("ERROR: "+ e.getLocalizedMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+            }
+
+        }                                         
+
+        private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {                                         
+            setVisible(false);
+            dispose();
+        }                                        
+
+        public static void main(String args[]) {
+    
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(insertNews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(insertNews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(insertNews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(insertNews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    //new insertNews().setVisible(true);
+                }
+            });
+        }
+
+        // Variables declaration - do not modify                     
+        private javax.swing.JButton btnClose;
+        private javax.swing.JButton btnInsert;
+        private javax.swing.JTextArea contentField;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JLabel labError;
+        private javax.swing.JTextField subtitleField;
+        private javax.swing.JTextField titleField;
+        // End of variables declaration                   
+    }
+
+---
+
+#### Notice Insert Form
+
+---
+    import javax.swing.JOptionPane;
+
+    public class insertNotice extends javax.swing.JFrame {
+        String userid, firstName, lastName, email;
+
+        public insertNotice(String[] user) {
+            
+            this.userid  = user[0];
+            this.firstName= user[1];
+            this.lastName = user[2];
+            this.email = user[3];
+            initComponents();
+        }
+        @SuppressWarnings("unchecked")
+                            
+        private void initComponents() {
+
+            jLabel1 = new javax.swing.JLabel();
+            jLabel2 = new javax.swing.JLabel();
+            titleField = new javax.swing.JTextField();
+            subtitleField = new javax.swing.JTextField();
+            jScrollPane1 = new javax.swing.JScrollPane();
+            contentField = new javax.swing.JTextArea();
+            btnInsert = new javax.swing.JButton();
+            btnClose = new javax.swing.JButton();
+            labError = new javax.swing.JLabel();
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+            setTitle("Publish New: " + this.firstName + "( " + this.email + ")");
+            setType(java.awt.Window.Type.UTILITY);
+            setForeground(new java.awt.Color(255, 0, 0));
+
+            jLabel1.setText("Title");
+
+            jLabel2.setText("Subtitle");
+
+            titleField.setBackground(new java.awt.Color(255, 215, 213));
+            titleField.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    titleFieldActionPerformed(evt);
+                }
+            });
+
+            subtitleField.setBackground(new java.awt.Color(255, 215, 213));
+
+            contentField.setColumns(20);
+            contentField.setRows(5);
+            jScrollPane1.setViewportView(contentField);
+
+            btnInsert.setText("Insert");
+            btnInsert.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnInsertActionPerformed(evt);
+                }
+            });
+
+            btnClose.setText("Close");
+            btnClose.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnCloseActionPerformed(evt);
+                }
+            });
+
+            //labError.setForeground(new java.awt.Color(239, 13, 13));
+            labError.setText("Status: ");
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(titleField)
+                                .addComponent(subtitleField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(labError)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnClose)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnInsert)))
+                    .addContainerGap())
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(subtitleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnInsert)
+                        .addComponent(btnClose)
+                        .addComponent(labError))
+                    .addContainerGap())
+            );
+
+            pack();
+        }// </editor-fold>                        
+
+        private void titleFieldActionPerformed(java.awt.event.ActionEvent evt) {                                           
+            // TODO add your handling code here:
+        }                                          
+
+        private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) { 
+            String title, subtitle, content;
+            
+            title = titleField.getText();
+            subtitle = subtitleField.getText();
+            content = contentField.getText();
+
+            try {
+
+                if(!(title.length()>255)){
+
+                    if(!(subtitle.length()>255)){
+                        
+
+                        // null check or empty check
+                        if(!(title.equals(null) || title.equals(""))){
+
+                            if(!(subtitle.equals(null) || subtitle.equals(""))){
+
+                                //send to database
+                                
+                                boolean result= new NoticeController().insertNewNotice(title, subtitle, content, userid);
+
+                                if(!result){
+                                    throw new RuntimeException("Insertion incomplete");
+                                }else{
+
+                                    titleField.setText("");
+                                    subtitleField.setText("");
+                                    contentField.setText("");
+
+                                    labError.setForeground(new java.awt.Color(0, 240, 13));
+                                    labError.setText("SUCESS: "+ "Insertion Successfully.");
+
+                                    JOptionPane.showMessageDialog(null, "Insertion Successfully.");
+                                }
+
+                            }else{
+                                throw new RuntimeException("Subtitle shouldn't be empty or null.");
+                            }
+                        }else{
+                        throw new RuntimeException("Title shouldn't be empty or null.");
+                        }
+                    }else{
+                        throw new RuntimeException("Subtitle length shouldn't be greater than 255");
+                    }
+            }else{
+                throw new RuntimeException("Title length shouldn't be greater than 255");    
+            }
+                
+            } catch (Exception e) {
+
+                labError.setForeground(new java.awt.Color(239, 13, 13));
+                labError.setText("ERROR: "+ e.getLocalizedMessage().toString());
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", 3);
+            }
+
+        }                                         
+
+        private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {                                         
+            setVisible(false);
+            dispose();
+        }                                        
+
+        public static void main(String args[]) {
+    
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(insertNotice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(insertNotice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(insertNotice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(insertNotice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    //new insertNotice().setVisible(true);
+                }
+            });
+        }
+
+        // Variables declaration - do not modify                     
+        private javax.swing.JButton btnClose;
+        private javax.swing.JButton btnInsert;
+        private javax.swing.JTextArea contentField;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JLabel labError;
+        private javax.swing.JTextField subtitleField;
+        private javax.swing.JTextField titleField;
+        // End of variables declaration                   
+    }
+
+---
 
 ### WEB APPLICATION
 ![](markdownresources/webd.drawio.png)
