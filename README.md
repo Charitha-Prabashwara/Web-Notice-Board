@@ -1,4 +1,8 @@
 # WEB NOTICE BOARD
+#### Clone your Repository
+---
+    git clone https://github.com/Charitha-Prabashwara/Web-Notice-Board.git
+---
 A web notice board, also known as an online bulletin board or digital bulletin board, offers several benefits compared to traditional physical notice boards. Here are some of the key advantages:
 
 **Group members**
