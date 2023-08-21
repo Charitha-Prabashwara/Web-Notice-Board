@@ -2463,7 +2463,7 @@ On Windows, use the Command Prompt or PowerShell. On macOS or Linux, use the Ter
 
 Use the cd command to navigate to the directory where you want to create a local copy of the repository. For example:
 
----console
+---
     cd /path/to/your/directory
 ---
 
@@ -2471,13 +2471,13 @@ Use the cd command to navigate to the directory where you want to create a local
 
 Use the git clone command followed by the URL of the Git repository you want to clone. You can find the URL on the repository's GitHub page (or whichever platform it's hosted on). The command format is:
 
----console
+---
     git clone <repository_url>
 ---
 
 For example:
 
----console
+---
     git clone https://github.com/username/repository-name.git
 ---
 
@@ -2485,7 +2485,7 @@ For example:
 
 Use the cd command to navigate into the cloned repository directory:
 
----console
+---
     cd repository-name
 ---
 
