@@ -1,5 +1,5 @@
 # WEB NOTICE BOARD
-#### Clone your Repository
+#### Clone Our Repository
 ---
     git clone https://github.com/Charitha-Prabashwara/Web-Notice-Board.git
 ---
